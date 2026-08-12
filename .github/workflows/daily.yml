@@ -2,8 +2,10 @@ name: Atualização diária PA Finder
 
 on:
   schedule:
+    # 09:00 no horário de Brasília (UTC-3) = 12:00 UTC.
+    # Ajuste o cron se quiser outro horário (formato: minuto hora * * *, em UTC).
     - cron: "0 12 * * *"
-  workflow_dispatch: {}
+  workflow_dispatch: {}  # permite rodar manualmente pela aba Actions no GitHub
 
 permissions:
   contents: write
@@ -30,6 +32,7 @@ jobs:
           API_FOOTBALL_BASE_URL: ${{ vars.API_FOOTBALL_BASE_URL }}
           API_FOOTBALL_RAPIDAPI_HOST: ${{ vars.API_FOOTBALL_RAPIDAPI_HOST }}
           DAILY_CALL_BUDGET: ${{ vars.DAILY_CALL_BUDGET }}
+          FOOTBALL_DATA_API_KEY: ${{ secrets.FOOTBALL_DATA_API_KEY }}
         run: python -m scripts.run_pipeline
 
       - name: Commit e push dos dados atualizados
