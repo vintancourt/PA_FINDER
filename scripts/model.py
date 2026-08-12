@@ -101,6 +101,24 @@ def classify_pa(p_home_2: float, p_away_2: float, home_team: str, away_team: str
     return {"label": "EVITAR PA NESSE JOGO", "tier": "evitar"}
 
 
+def no_data_model() -> dict:
+    """Veredito pra jogos de ligas fora da cobertura gratuita de histórico,
+    ou times que não conseguimos casar entre as duas fontes de dados."""
+    return {
+        "lambda_home": None,
+        "lambda_away": None,
+        "favorite_side": None,
+        "prob_lead_2_home": None,
+        "prob_lead_2_away": None,
+        "prob_lead_3_home": None,
+        "prob_lead_3_away": None,
+        "duplo_green_label": "SEM DADOS SUFICIENTES",
+        "pa_label": "SEM DADOS SUFICIENTES",
+        "pa_tier": "sem_dados",
+        "raw_score": -1,
+    }
+
+
 def score_fixture(home_stats: dict, away_stats: dict, home_team: str, away_team: str) -> dict:
     """Calcula o veredito estatístico (sem odds) para um confronto."""
     lambda_home, lambda_away = expected_goals(home_stats, away_stats)
