@@ -8,6 +8,15 @@ No GitHub Actions, configure o secret API_FOOTBALL_KEY em:
 import os
 from pathlib import Path
 
+
+def _int_env(key: str, default: str) -> int:
+    """Como os.environ.get, mas trata variável vazia ("") como se não
+    existisse — o GitHub Actions manda "" quando uma Variable não foi
+    criada, em vez de simplesmente omitir a variável."""
+    value = os.environ.get(key, "").strip()
+    return int(value) if value else int(default)
+
+
 # --- API-Football (api-football.com / api-sports.io) ---
 API_FOOTBALL_KEY = os.environ.get("API_FOOTBALL_KEY", "")
 API_BASE_URL = os.environ.get("API_FOOTBALL_BASE_URL", "https://v3.football.api-sports.io")
@@ -26,7 +35,7 @@ if _RAPIDAPI_HOST:
 
 # --- Orçamento de chamadas (plano free = 100 req/dia) ---
 # Deixamos uma margem de segurança porque outras automações podem usar a mesma chave.
-DAILY_CALL_BUDGET = int(os.environ.get("DAILY_CALL_BUDGET", "90"))
+DAILY_CALL_BUDGET = _int_env("DAILY_CALL_BUDGET", "90")
 
 # Sem consulta de odds nesse projeto (o usuário já usa outro programa pra odds).
 # Isso libera praticamente toda a cota pra estatísticas de time.
@@ -43,7 +52,7 @@ for d in (DATA_DIR, TEAM_STATS_DIR, HISTORY_DIR, DOCS_DIR):
 
 # --- Regras do modelo ---
 # Cache de estatísticas de time válido por N dias (evita gastar cota repetindo).
-TEAM_STATS_CACHE_DAYS = int(os.environ.get("TEAM_STATS_CACHE_DAYS", "3"))
+TEAM_STATS_CACHE_DAYS = _int_env("TEAM_STATS_CACHE_DAYS", "3")
 
 # Linhas de gol usadas como "gatilho típico de PA" nas casas (ajustável).
 PA_LEAD_THRESHOLDS = [2, 3]  # ex: chance de abrir vantagem de 2 ou 3 gols
