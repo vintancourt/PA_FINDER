@@ -16,6 +16,7 @@ PA_TIER_CSS = {
     "duplo": "blue",
     "moderado": "mid",
     "evitar": "lo",
+    "sem_dados": "lo",
 }
 
 
@@ -33,10 +34,13 @@ def _match_row(row: dict) -> str:
     dg_css = DUPLO_GREEN_CSS.get(dg_label, "lo")
     pa_css = PA_TIER_CSS.get(m["pa_tier"], "lo")
 
-    tooltip = (
-        f'+2 gols: casa {m["prob_lead_2_home"]:.0%} / fora {m["prob_lead_2_away"]:.0%} · '
-        f'+3 gols: casa {m["prob_lead_3_home"]:.0%} / fora {m["prob_lead_3_away"]:.0%}'
-    )
+    if m["lambda_home"] is None:
+        tooltip = "Estatística indisponível — liga fora da cobertura gratuita de histórico."
+    else:
+        tooltip = (
+            f'+2 gols: casa {m["prob_lead_2_home"]:.0%} / fora {m["prob_lead_2_away"]:.0%} · '
+            f'+3 gols: casa {m["prob_lead_3_home"]:.0%} / fora {m["prob_lead_3_away"]:.0%}'
+        )
 
     return f'''<div class="match-row conf-{dg_css}" title="{html.escape(tooltip)}">
       <div class="mr-time">{_fmt_kickoff(row["kickoff_utc"])}</div>
