@@ -1,14 +1,33 @@
-"""Busca (com cache) estatísticas de ataque/defesa de cada time por liga/temporada."""
+"""
+Busca (com cache) médias de gols de cada time, calculadas a partir dos
+últimos jogos disputados — com peso maior para os jogos mais recentes.
+
+IMPORTANTE: o endpoint /teams/statistics é bloqueado no plano gratuito da
+API-Football pra temporada atual ("Free plans do not have access to this
+season"). Por isso calculamos as médias nós mesmos, a partir dos últimos
+jogos do time via /fixtures?team=X&last=N — esse endpoint não tem essa
+restrição, e pedir mais jogos não gasta cota extra (é 1 chamada de qualquer
+forma).
+"""
 import json
-import time as _time
 from datetime import datetime, timedelta
 
 from scripts import config
 from scripts.api_client import ApiClient, CallBudgetExceeded
 
+LAST_N_MATCHES = 30
+FINISHED_STATUSES = "FT-AET-PEN"  # jogos encerrados (normal, prorrogação, pênaltis)
+MIN_SPLIT_SAMPLES = 5  # mínimo de jogos em casa/fora pra usar a média separada
 
-def _cache_path(league_id: int, season: int, team_id: int):
-    return config.TEAM_STATS_DIR / f"{league_id}_{season}_{team_id}.json"
+# Peso exponencial por recência: o jogo mais recente tem peso 1.0, e cada
+# jogo mais antigo pesa RECENCY_DECAY vezes o anterior. Com 0.93, o jogo
+# nº10 (contando do mais recente) ainda pesa ~48%, e o nº30 pesa ~11% —
+# os últimos jogos dominam a média, mas os mais antigos não somem de vez.
+RECENCY_DECAY = 0.93
+
+
+def _cache_path(team_id: int):
+    return config.TEAM_STATS_DIR / f"team_{team_id}.json"
 
 
 def _is_fresh(path) -> bool:
@@ -19,46 +38,82 @@ def _is_fresh(path) -> bool:
     return datetime.now() - fetched_at < timedelta(days=config.TEAM_STATS_CACHE_DAYS)
 
 
-def _parse_stats(raw: dict) -> dict:
-    """Extrai só os números que o modelo precisa, num formato simples."""
-    goals = raw.get("goals", {})
-    try:
-        gf_home = float(goals["for"]["average"]["home"])
-        gf_away = float(goals["for"]["average"]["away"])
-        ga_home = float(goals["against"]["average"]["home"])
-        ga_away = float(goals["against"]["average"]["away"])
-    except (KeyError, TypeError, ValueError):
-        gf_home = gf_away = ga_home = ga_away = 1.2  # fallback neutro
+def _weighted_avg(pairs: list[tuple[float, float]], fallback: float) -> float:
+    """pairs = [(valor, peso), ...]"""
+    total_w = sum(w for _, w in pairs)
+    if total_w == 0:
+        return fallback
+    return round(sum(v * w for v, w in pairs) / total_w, 3)
+
+
+def _compute_stats(team_id: int, fixtures: list[dict]) -> dict:
+    # ordena do mais recente pro mais antigo, pra atribuir os pesos certos
+    def kickoff(fx):
+        return fx.get("fixture", {}).get("date", "")
+
+    fixtures = sorted(fixtures, key=kickoff, reverse=True)
+
+    home_for, home_against = [], []
+    away_for, away_against = [], []
+    all_for, all_against = [], []
+
+    for rank, fx in enumerate(fixtures):
+        goals = fx.get("goals", {})
+        gh, ga = goals.get("home"), goals.get("away")
+        if gh is None or ga is None:
+            continue
+
+        weight = RECENCY_DECAY ** rank
+        is_home = fx["teams"]["home"]["id"] == team_id
+        team_goals = gh if is_home else ga
+        opp_goals = ga if is_home else gh
+
+        all_for.append((team_goals, weight))
+        all_against.append((opp_goals, weight))
+        if is_home:
+            home_for.append((team_goals, weight))
+            home_against.append((opp_goals, weight))
+        else:
+            away_for.append((team_goals, weight))
+            away_against.append((opp_goals, weight))
+
+    overall_for = _weighted_avg(all_for, 1.2)
+    overall_against = _weighted_avg(all_against, 1.2)
 
     return {
-        "goals_for_avg_home": gf_home,
-        "goals_for_avg_away": gf_away,
-        "goals_against_avg_home": ga_home,
-        "goals_against_avg_away": ga_away,
+        "goals_for_avg_home": _weighted_avg(home_for, overall_for) if len(home_for) >= MIN_SPLIT_SAMPLES else overall_for,
+        "goals_against_avg_home": _weighted_avg(home_against, overall_against) if len(home_against) >= MIN_SPLIT_SAMPLES else overall_against,
+        "goals_for_avg_away": _weighted_avg(away_for, overall_for) if len(away_for) >= MIN_SPLIT_SAMPLES else overall_for,
+        "goals_against_avg_away": _weighted_avg(away_against, overall_against) if len(away_against) >= MIN_SPLIT_SAMPLES else overall_against,
+        "sample_size": len(all_for),
     }
 
 
 def get_team_stats(client: ApiClient, league_id: int, season: int, team_id: int) -> dict | None:
-    path = _cache_path(league_id, season, team_id)
+    """A assinatura mantém league_id/season por compatibilidade com quem
+    chama, mas eles não são mais usados na consulta (evita a restrição de
+    temporada do plano free)."""
+    path = _cache_path(team_id)
     if _is_fresh(path):
         return json.loads(path.read_text())["stats"]
 
     try:
         payload = client.get(
-            "/teams/statistics",
-            params={"league": league_id, "season": season, "team": team_id},
+            "/fixtures",
+            params={"team": team_id, "last": LAST_N_MATCHES, "status": FINISHED_STATUSES},
         )
     except CallBudgetExceeded:
         raise
     except Exception as e:
-        print(f"[fetch_team_stats] falhou time {team_id} liga {league_id}: {e}")
+        print(f"[fetch_team_stats] falhou time {team_id}: {e}")
         return None
 
-    raw = payload.get("response")
-    if not raw:
+    fixtures = payload.get("response") or []
+    if not fixtures:
+        print(f"[fetch_team_stats] sem jogos recentes pro time {team_id} — pulando")
         return None
 
-    stats = _parse_stats(raw)
+    stats = _compute_stats(team_id, fixtures)
     path.write_text(json.dumps(
         {"_fetched_at": datetime.now().isoformat(), "stats": stats},
         ensure_ascii=False, indent=2,
