@@ -17,16 +17,22 @@ def _int_env(key: str, default: str) -> int:
     return int(value) if value else int(default)
 
 
+def _str_env(key: str, default: str) -> str:
+    """Mesma ideia de _int_env, mas para strings."""
+    value = os.environ.get(key, "").strip()
+    return value if value else default
+
+
 # --- API-Football (api-football.com / api-sports.io) ---
-API_FOOTBALL_KEY = os.environ.get("API_FOOTBALL_KEY", "")
-API_BASE_URL = os.environ.get("API_FOOTBALL_BASE_URL", "https://v3.football.api-sports.io")
+API_FOOTBALL_KEY = _str_env("API_FOOTBALL_KEY", "")
+API_BASE_URL = _str_env("API_FOOTBALL_BASE_URL", "https://v3.football.api-sports.io")
 API_HEADERS = {"x-apisports-key": API_FOOTBALL_KEY}
 
 # Se o usuário preferir usar via RapidAPI em vez do endpoint direto,
 # defina API_FOOTBALL_BASE_URL=https://api-football-v1.p.rapidapi.com/v3
 # e API_FOOTBALL_RAPIDAPI_HOST=api-football-v1.p.rapidapi.com nos secrets,
 # e o código ajusta o header automaticamente:
-_RAPIDAPI_HOST = os.environ.get("API_FOOTBALL_RAPIDAPI_HOST", "")
+_RAPIDAPI_HOST = _str_env("API_FOOTBALL_RAPIDAPI_HOST", "")
 if _RAPIDAPI_HOST:
     API_HEADERS = {
         "x-rapidapi-key": API_FOOTBALL_KEY,
