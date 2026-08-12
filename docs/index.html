@@ -2,20 +2,170 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<title>PA Finder</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PA Finder — Radar diário de Pagamento Antecipado</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  body { background:#0B0E11; color:#E7ECEF; font-family: ui-monospace, monospace;
-         display:flex; align-items:center; justify-content:center; height:100vh; margin:0; }
-  .box { text-align:center; }
-  .box h1 { font-family: sans-serif; }
-  .box p { color:#7C8792; }
+  :root {
+    --bg: #0B0E11;
+    --panel: #11161B;
+    --panel-2: #161C22;
+    --line: #232A31;
+    --text: #E7ECEF;
+    --muted: #7C8792;
+    --hi: #3ECF8E;
+    --mid: #E8B94E;
+    --lo: #566270;
+    --blue: #4EA1E8;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    -webkit-font-smoothing: antialiased;
+  }
+  header { padding: 28px 20px 18px; border-bottom: 1px solid var(--line); }
+  h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    margin: 0 0 4px;
+    letter-spacing: -0.01em;
+  }
+  .sub { color: var(--muted); font-size: 13px; margin: 0; }
+  .meta { color: var(--muted); font-size: 12px; margin-top: 10px; display: flex; gap: 18px; flex-wrap: wrap; }
+  .meta b { color: var(--text); }
+  main { padding: 18px 20px 48px; max-width: 900px; margin: 0 auto; }
+  .disclaimer {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--mid);
+    padding: 12px 16px;
+    font-size: 12.5px;
+    color: var(--muted);
+    border-radius: 4px;
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+  .empty { color: var(--muted); text-align: center; padding: 40px 0; }
+
+  .league-card {
+    position: relative;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    margin-bottom: 12px;
+    overflow: hidden;
+  }
+  .league-card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--hi), var(--blue));
+    opacity: 0.7;
+  }
+  .league-card summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 18px;
+  }
+  .league-card summary::-webkit-details-marker { display: none; }
+  .league-dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--hi), var(--blue));
+    flex-shrink: 0;
+  }
+  .league-name {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    flex: 1;
+  }
+  .league-count {
+    font-size: 11.5px;
+    color: var(--hi);
+    background: rgba(62,207,142,0.12);
+    padding: 4px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+  .chevron {
+    color: var(--muted);
+    transition: transform 0.15s ease;
+    font-size: 12px;
+  }
+  .league-card[open] .chevron { transform: rotate(180deg); }
+
+  .league-matches { border-top: 1px solid var(--line); }
+  .match-row {
+    display: grid;
+    grid-template-columns: 78px 1fr;
+    gap: 4px 14px;
+    padding: 12px 18px;
+    border-bottom: 1px solid var(--line);
+    border-left: 3px solid transparent;
+  }
+  .match-row:last-child { border-bottom: none; }
+  .match-row.conf-hi { border-left-color: var(--hi); }
+  .match-row.conf-mid { border-left-color: var(--mid); }
+  .match-row.conf-lo { border-left-color: transparent; }
+  .mr-time { color: var(--muted); font-size: 12px; align-self: center; }
+  .mr-teams { font-weight: 600; font-size: 13.5px; align-self: center; }
+  .vs { color: var(--muted); font-weight: 400; }
+  .mr-badges { grid-column: 2; display: flex; gap: 8px; flex-wrap: wrap; }
+
+  .badge {
+    display: inline-block;
+    font-size: 10.5px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    padding: 4px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+  .badge-hi { background: rgba(62,207,142,0.15); color: var(--hi); }
+  .badge-mid { background: rgba(232,185,78,0.15); color: var(--mid); }
+  .badge-lo { background: rgba(86,98,112,0.2); color: var(--lo); }
+  .badge-blue { background: rgba(78,161,232,0.15); color: var(--blue); }
+
+  footer { padding: 20px; color: var(--muted); font-size: 11.5px; border-top: 1px solid var(--line); text-align: center; }
+
+  @media (max-width: 520px) {
+    .match-row { grid-template-columns: 1fr; }
+    .mr-time { order: -1; }
+    .mr-badges { grid-column: 1; }
+  }
 </style>
 </head>
 <body>
-  <div class="box">
-    <h1>PA Finder</h1>
-    <p>Ainda sem dados — rode o workflow "Atualização diária PA Finder" na aba Actions do GitHub<br>
-       (ou espere a execução automática) pra gerar o primeiro ranking.</p>
+<header>
+  <h1>PA Finder</h1>
+  <p class="sub">Radar diário de candidatos a Pagamento Antecipado — jogos de hoje e amanhã, separados por campeonato</p>
+  <div class="meta">
+    <span>Atualizado: <b>12/08/2026 16:02</b></span>
+    <span>Jogos avaliados: <b>0</b></span>
+    <span>Chamadas de API usadas: <b>90/90</b></span>
   </div>
+</header>
+<main>
+  <div class="disclaimer">
+    Vereditos baseados em estimativa estatística (médias de gols dos times), não são garantia de que a casa vai
+    disparar o pagamento antecipado — cada casa tem sua própria regra de gatilho. Use como priorização pra não
+    perder tempo analisando jogo por jogo; a decisão final e as odds ficam com o seu processo de sempre.
+  </div>
+  <p class="empty">Nenhum jogo encontrado nos campeonatos configurados para hoje/amanhã.</p>
+</main>
+<footer>
+  PA Finder · gerado automaticamente via GitHub Actions · dados: API-Football
+</footer>
 </body>
 </html>
