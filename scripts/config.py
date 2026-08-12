@@ -39,6 +39,32 @@ if _RAPIDAPI_HOST:
         "x-rapidapi-host": _RAPIDAPI_HOST,
     }
 
+# --- football-data.org (fonte gratuita de HISTÓRICO de jogos) ---
+# A API-Football bloqueia, no plano free, qualquer forma de puxar jogos
+# passados (nem por "season" nem por "last"). A football-data.org tem um
+# plano free permanente que libera histórico de verdade, mas só pra 12
+# competições (majoritariamente ligas europeias grandes). Por isso usamos
+# ela só pra calcular as médias de gols dessas ligas específicas; o resto
+# continua aparecendo no site, só que sem veredito estatístico.
+# Cadastro grátis em: https://www.football-data.org/client/register
+FOOTBALL_DATA_KEY = _str_env("FOOTBALL_DATA_API_KEY", "")
+FOOTBALL_DATA_BASE_URL = "https://api.football-data.org/v4"
+
+# rótulo (igual ao "label" em LEAGUE_WHITELIST) -> código da competição na
+# football-data.org
+FOOTBALL_DATA_COMPETITIONS: dict[str, str] = {
+    "Brasileirão Série A": "BSA",
+    "Premier League": "PL",
+    "Championship (Inglaterra)": "ELC",
+    "LaLiga": "PD",
+    "Bundesliga": "BL1",
+    "Ligue 1": "FL1",
+    "Série A": "SA",
+    "Liga Portugal": "PPL",
+    "Champions League": "CL",
+    "Copa do Mundo 2026": "WC",
+}
+
 # --- Orçamento de chamadas (plano free = 100 req/dia) ---
 # Deixamos uma margem de segurança porque outras automações podem usar a mesma chave.
 DAILY_CALL_BUDGET = _int_env("DAILY_CALL_BUDGET", "90")
