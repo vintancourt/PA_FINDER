@@ -1,33 +1,24 @@
 """
-Busca (com cache) médias de gols de cada time, calculadas a partir dos
-últimos jogos disputados — com peso maior para os jogos mais recentes.
+Busca (com cache) médias de gols de cada time, usando football-data.org
+como fonte de histórico — só disponível pras ligas em
+config.FOOTBALL_DATA_COMPETITIONS (veja o motivo em config.py).
 
-IMPORTANTE: o endpoint /teams/statistics é bloqueado no plano gratuito da
-API-Football pra temporada atual ("Free plans do not have access to this
-season"). Por isso calculamos as médias nós mesmos, a partir dos últimos
-jogos do time via /fixtures?team=X&last=N — esse endpoint não tem essa
-restrição, e pedir mais jogos não gasta cota extra (é 1 chamada de qualquer
-forma).
+Pra ligas fora dessa lista, retorna None (o pipeline mostra o jogo mesmo
+assim, só que sem veredito estatístico).
 """
 import json
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, date
 
 from scripts import config
-from scripts.api_client import ApiClient, CallBudgetExceeded
+from scripts import stats_calc
+from scripts.football_data_client import FootballDataClient
+from scripts.team_name_matcher import get_competition_team_index, match_team_id
 
-LAST_N_MATCHES = 30
-FINISHED_STATUSES = "FT-AET-PEN"  # jogos encerrados (normal, prorrogação, pênaltis)
-MIN_SPLIT_SAMPLES = 5  # mínimo de jogos em casa/fora pra usar a média separada
-
-# Peso exponencial por recência: o jogo mais recente tem peso 1.0, e cada
-# jogo mais antigo pesa RECENCY_DECAY vezes o anterior. Com 0.93, o jogo
-# nº10 (contando do mais recente) ainda pesa ~48%, e o nº30 pesa ~11% —
-# os últimos jogos dominam a média, mas os mais antigos não somem de vez.
-RECENCY_DECAY = 0.93
+MATCH_HISTORY_DAYS = 220  # ~7 meses pra trás, o suficiente pra pegar uns 30 jogos
 
 
-def _cache_path(team_id: int):
-    return config.TEAM_STATS_DIR / f"team_{team_id}.json"
+def _cache_path(fd_team_id: int):
+    return config.TEAM_STATS_DIR / f"fd_stats_{fd_team_id}.json"
 
 
 def _is_fresh(path) -> bool:
@@ -38,82 +29,54 @@ def _is_fresh(path) -> bool:
     return datetime.now() - fetched_at < timedelta(days=config.TEAM_STATS_CACHE_DAYS)
 
 
-def _weighted_avg(pairs: list[tuple[float, float]], fallback: float) -> float:
-    """pairs = [(valor, peso), ...]"""
-    total_w = sum(w for _, w in pairs)
-    if total_w == 0:
-        return fallback
-    return round(sum(v * w for v, w in pairs) / total_w, 3)
+def _fetch_recent_matches(client: FootballDataClient, fd_team_id: int) -> list[dict]:
+    date_from = (date.today() - timedelta(days=MATCH_HISTORY_DAYS)).isoformat()
+    date_to = date.today().isoformat()
+    payload = client.get(
+        f"/teams/{fd_team_id}/matches",
+        params={"status": "FINISHED", "dateFrom": date_from, "dateTo": date_to},
+    )
+    if not payload:
+        return []
+
+    matches = []
+    for m in payload.get("matches", []):
+        score = m.get("score", {}).get("fullTime", {})
+        matches.append({
+            "date": m.get("utcDate", ""),
+            "home_id": m.get("homeTeam", {}).get("id"),
+            "away_id": m.get("awayTeam", {}).get("id"),
+            "home_goals": score.get("home"),
+            "away_goals": score.get("away"),
+        })
+    # mais recentes primeiro, pega só os últimos 30
+    matches.sort(key=lambda m: m["date"], reverse=True)
+    return matches[:30]
 
 
-def _compute_stats(team_id: int, fixtures: list[dict]) -> dict:
-    # ordena do mais recente pro mais antigo, pra atribuir os pesos certos
-    def kickoff(fx):
-        return fx.get("fixture", {}).get("date", "")
+def get_team_stats(client: FootballDataClient, league_label: str, team_name: str) -> dict | None:
+    competition_code = config.FOOTBALL_DATA_COMPETITIONS.get(league_label)
+    if not competition_code:
+        return None  # liga fora da cobertura gratuita
 
-    fixtures = sorted(fixtures, key=kickoff, reverse=True)
+    team_index = get_competition_team_index(client, competition_code)
+    if not team_index:
+        return None
 
-    home_for, home_against = [], []
-    away_for, away_against = [], []
-    all_for, all_against = [], []
+    fd_team_id = match_team_id(team_name, team_index)
+    if fd_team_id is None:
+        print(f"[fetch_team_stats] não achei '{team_name}' na football-data.org ({competition_code})")
+        return None
 
-    for rank, fx in enumerate(fixtures):
-        goals = fx.get("goals", {})
-        gh, ga = goals.get("home"), goals.get("away")
-        if gh is None or ga is None:
-            continue
-
-        weight = RECENCY_DECAY ** rank
-        is_home = fx["teams"]["home"]["id"] == team_id
-        team_goals = gh if is_home else ga
-        opp_goals = ga if is_home else gh
-
-        all_for.append((team_goals, weight))
-        all_against.append((opp_goals, weight))
-        if is_home:
-            home_for.append((team_goals, weight))
-            home_against.append((opp_goals, weight))
-        else:
-            away_for.append((team_goals, weight))
-            away_against.append((opp_goals, weight))
-
-    overall_for = _weighted_avg(all_for, 1.2)
-    overall_against = _weighted_avg(all_against, 1.2)
-
-    return {
-        "goals_for_avg_home": _weighted_avg(home_for, overall_for) if len(home_for) >= MIN_SPLIT_SAMPLES else overall_for,
-        "goals_against_avg_home": _weighted_avg(home_against, overall_against) if len(home_against) >= MIN_SPLIT_SAMPLES else overall_against,
-        "goals_for_avg_away": _weighted_avg(away_for, overall_for) if len(away_for) >= MIN_SPLIT_SAMPLES else overall_for,
-        "goals_against_avg_away": _weighted_avg(away_against, overall_against) if len(away_against) >= MIN_SPLIT_SAMPLES else overall_against,
-        "sample_size": len(all_for),
-    }
-
-
-def get_team_stats(client: ApiClient, league_id: int, season: int, team_id: int) -> dict | None:
-    """A assinatura mantém league_id/season por compatibilidade com quem
-    chama, mas eles não são mais usados na consulta (evita a restrição de
-    temporada do plano free)."""
-    path = _cache_path(team_id)
+    path = _cache_path(fd_team_id)
     if _is_fresh(path):
         return json.loads(path.read_text())["stats"]
 
-    try:
-        payload = client.get(
-            "/fixtures",
-            params={"team": team_id, "last": LAST_N_MATCHES, "status": FINISHED_STATUSES},
-        )
-    except CallBudgetExceeded:
-        raise
-    except Exception as e:
-        print(f"[fetch_team_stats] falhou time {team_id}: {e}")
+    matches = _fetch_recent_matches(client, fd_team_id)
+    if not matches:
         return None
 
-    fixtures = payload.get("response") or []
-    if not fixtures:
-        print(f"[fetch_team_stats] sem jogos recentes pro time {team_id} — pulando")
-        return None
-
-    stats = _compute_stats(team_id, fixtures)
+    stats = stats_calc.compute_weighted_stats(fd_team_id, matches)
     path.write_text(json.dumps(
         {"_fetched_at": datetime.now().isoformat(), "stats": stats},
         ensure_ascii=False, indent=2,
