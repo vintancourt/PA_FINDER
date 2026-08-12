@@ -1,0 +1,42 @@
+name: Atualização diária PA Finder
+
+on:
+  schedule:
+    - cron: "0 12 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do repositório
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Instalar dependências
+        run: pip install -r requirements.txt
+
+      - name: Rodar pipeline (busca jogos, calcula PA Score, gera site)
+        env:
+          API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
+          API_FOOTBALL_BASE_URL: ${{ vars.API_FOOTBALL_BASE_URL }}
+          API_FOOTBALL_RAPIDAPI_HOST: ${{ vars.API_FOOTBALL_RAPIDAPI_HOST }}
+          DAILY_CALL_BUDGET: ${{ vars.DAILY_CALL_BUDGET }}
+        run: python -m scripts.run_pipeline
+
+      - name: Commit e push dos dados atualizados
+        run: |
+          git config user.name "pa-finder-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/ docs/
+          git diff --cached --quiet && echo "Nada novo para commitar" && exit 0
+          git commit -m "Atualização automática: $(date -u +'%Y-%m-%d %H:%M UTC')"
+          git push
