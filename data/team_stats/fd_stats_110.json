@@ -1,10 +1,10 @@
 {
-  "_fetched_at": "2026-09-18T15:47:38.014085",
+  "_fetched_at": "2026-10-10T16:52:09.862581",
   "stats": {
-    "goals_for_avg_home": 1.431,
-    "goals_against_avg_home": 1.461,
-    "goals_for_avg_away": 1.126,
-    "goals_against_avg_away": 0.799,
-    "sample_size": 18
+    "goals_for_avg_home": 1.514,
+    "goals_against_avg_home": 1.43,
+    "goals_for_avg_away": 1.428,
+    "goals_against_avg_away": 0.616,
+    "sample_size": 16
   }
 }
