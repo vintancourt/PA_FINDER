@@ -1,31 +1,10 @@
 {
-  "generated_at": "2026-11-11T19:09:02.770978",
+  "generated_at": "2026-11-12T19:25:52.233899",
   "calls_used": 2,
   "call_budget": 90,
   "fd_calls_used": 0,
   "total_fixtures_evaluated": 3,
   "ranking": [
-    {
-      "fixture_id": 1520976,
-      "kickoff_utc": "2026-11-11T22:00:00+00:00",
-      "league_label": "Brasileirão Série B",
-      "league_order": 1,
-      "home_team": "Londrina",
-      "away_team": "Nautico Recife",
-      "model": {
-        "lambda_home": null,
-        "lambda_away": null,
-        "favorite_side": null,
-        "prob_lead_2_home": null,
-        "prob_lead_2_away": null,
-        "prob_lead_3_home": null,
-        "prob_lead_3_away": null,
-        "duplo_green_label": "SEM DADOS SUFICIENTES",
-        "pa_label": "SEM DADOS SUFICIENTES",
-        "pa_tier": "sem_dados",
-        "raw_score": -1
-      }
-    },
     {
       "fixture_id": 1520977,
       "kickoff_utc": "2026-11-12T22:00:00+00:00",
@@ -54,6 +33,27 @@
       "league_order": 1,
       "home_team": "São Bernardo",
       "away_team": "Athletic Club",
+      "model": {
+        "lambda_home": null,
+        "lambda_away": null,
+        "favorite_side": null,
+        "prob_lead_2_home": null,
+        "prob_lead_2_away": null,
+        "prob_lead_3_home": null,
+        "prob_lead_3_away": null,
+        "duplo_green_label": "SEM DADOS SUFICIENTES",
+        "pa_label": "SEM DADOS SUFICIENTES",
+        "pa_tier": "sem_dados",
+        "raw_score": -1
+      }
+    },
+    {
+      "fixture_id": 1570019,
+      "kickoff_utc": "2026-11-13T19:30:00+00:00",
+      "league_label": "LaLiga 2",
+      "league_order": 8,
+      "home_team": "Leganes",
+      "away_team": "Burgos",
       "model": {
         "lambda_home": null,
         "lambda_away": null,
