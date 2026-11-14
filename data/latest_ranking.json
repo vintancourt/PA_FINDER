@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-11-13T19:04:51.269659",
+  "generated_at": "2026-11-14T17:34:07.792347",
   "calls_used": 2,
   "call_budget": 90,
-  "fd_calls_used": 4,
-  "total_fixtures_evaluated": 16,
+  "fd_calls_used": 0,
+  "total_fixtures_evaluated": 19,
   "ranking": [
     {
       "fixture_id": 1492455,
@@ -195,27 +195,6 @@
       }
     },
     {
-      "fixture_id": 1570019,
-      "kickoff_utc": "2026-11-13T19:30:00+00:00",
-      "league_label": "LaLiga 2",
-      "league_order": 8,
-      "home_team": "Leganes",
-      "away_team": "Burgos",
-      "model": {
-        "lambda_home": null,
-        "lambda_away": null,
-        "favorite_side": null,
-        "prob_lead_2_home": null,
-        "prob_lead_2_away": null,
-        "prob_lead_3_home": null,
-        "prob_lead_3_away": null,
-        "duplo_green_label": "SEM DADOS SUFICIENTES",
-        "pa_label": "SEM DADOS SUFICIENTES",
-        "pa_tier": "sem_dados",
-        "raw_score": -1
-      }
-    },
-    {
       "fixture_id": 1570024,
       "kickoff_utc": "2026-11-14T13:00:00+00:00",
       "league_label": "LaLiga 2",
@@ -306,6 +285,90 @@
       "league_order": 8,
       "home_team": "Oviedo",
       "away_team": "Girona",
+      "model": {
+        "lambda_home": null,
+        "lambda_away": null,
+        "favorite_side": null,
+        "prob_lead_2_home": null,
+        "prob_lead_2_away": null,
+        "prob_lead_3_home": null,
+        "prob_lead_3_away": null,
+        "duplo_green_label": "SEM DADOS SUFICIENTES",
+        "pa_label": "SEM DADOS SUFICIENTES",
+        "pa_tier": "sem_dados",
+        "raw_score": -1
+      }
+    },
+    {
+      "fixture_id": 1570023,
+      "kickoff_utc": "2026-11-15T13:00:00+00:00",
+      "league_label": "LaLiga 2",
+      "league_order": 8,
+      "home_team": "Tenerife",
+      "away_team": "AD Ceuta FC",
+      "model": {
+        "lambda_home": null,
+        "lambda_away": null,
+        "favorite_side": null,
+        "prob_lead_2_home": null,
+        "prob_lead_2_away": null,
+        "prob_lead_3_home": null,
+        "prob_lead_3_away": null,
+        "duplo_green_label": "SEM DADOS SUFICIENTES",
+        "pa_label": "SEM DADOS SUFICIENTES",
+        "pa_tier": "sem_dados",
+        "raw_score": -1
+      }
+    },
+    {
+      "fixture_id": 1570018,
+      "kickoff_utc": "2026-11-15T15:15:00+00:00",
+      "league_label": "LaLiga 2",
+      "league_order": 8,
+      "home_team": "Granada CF",
+      "away_team": "Las Palmas",
+      "model": {
+        "lambda_home": null,
+        "lambda_away": null,
+        "favorite_side": null,
+        "prob_lead_2_home": null,
+        "prob_lead_2_away": null,
+        "prob_lead_3_home": null,
+        "prob_lead_3_away": null,
+        "duplo_green_label": "SEM DADOS SUFICIENTES",
+        "pa_label": "SEM DADOS SUFICIENTES",
+        "pa_tier": "sem_dados",
+        "raw_score": -1
+      }
+    },
+    {
+      "fixture_id": 1570016,
+      "kickoff_utc": "2026-11-15T17:30:00+00:00",
+      "league_label": "LaLiga 2",
+      "league_order": 8,
+      "home_team": "Eibar",
+      "away_team": "Cadiz",
+      "model": {
+        "lambda_home": null,
+        "lambda_away": null,
+        "favorite_side": null,
+        "prob_lead_2_home": null,
+        "prob_lead_2_away": null,
+        "prob_lead_3_home": null,
+        "prob_lead_3_away": null,
+        "duplo_green_label": "SEM DADOS SUFICIENTES",
+        "pa_label": "SEM DADOS SUFICIENTES",
+        "pa_tier": "sem_dados",
+        "raw_score": -1
+      }
+    },
+    {
+      "fixture_id": 1570017,
+      "kickoff_utc": "2026-11-15T17:30:00+00:00",
+      "league_label": "LaLiga 2",
+      "league_order": 8,
+      "home_team": "Eldense",
+      "away_team": "Sabadell",
       "model": {
         "lambda_home": null,
         "lambda_away": null,
