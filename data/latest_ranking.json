@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-11-17T20:22:29.526538",
+  "generated_at": "2026-11-18T19:52:15.163562",
   "calls_used": 2,
   "call_budget": 90,
-  "fd_calls_used": 9,
-  "total_fixtures_evaluated": 4,
+  "fd_calls_used": 8,
+  "total_fixtures_evaluated": 8,
   "ranking": [
     {
       "fixture_id": 1492451,
@@ -87,6 +87,90 @@
         "pa_label": "PEGAR PA NESSE TIME: Flamengo",
         "pa_tier": "moderado",
         "raw_score": 0.3002
+      }
+    },
+    {
+      "fixture_id": 1492450,
+      "kickoff_utc": "2026-11-19T00:30:00+00:00",
+      "league_label": "Brasileirão Série A",
+      "league_order": 0,
+      "home_team": "Corinthians",
+      "away_team": "Botafogo",
+      "model": {
+        "lambda_home": 1.41,
+        "lambda_away": 0.85,
+        "favorite_side": "home",
+        "prob_lead_2_home": 0.3347,
+        "prob_lead_2_away": 0.0975,
+        "prob_lead_3_home": 0.1478,
+        "prob_lead_3_away": 0.0271,
+        "duplo_green_label": "CHANCE MODERADA DE DUPLO GREEN",
+        "pa_label": "PEGAR PA NESSE TIME: Corinthians",
+        "pa_tier": "moderado",
+        "raw_score": 0.2786
+      }
+    },
+    {
+      "fixture_id": 1492454,
+      "kickoff_utc": "2026-11-19T00:30:00+00:00",
+      "league_label": "Brasileirão Série A",
+      "league_order": 0,
+      "home_team": "Gremio",
+      "away_team": "Bahia",
+      "model": {
+        "lambda_home": 1.57,
+        "lambda_away": 1.4,
+        "favorite_side": "home",
+        "prob_lead_2_home": 0.2819,
+        "prob_lead_2_away": 0.2082,
+        "prob_lead_3_home": 0.1301,
+        "prob_lead_3_away": 0.0865,
+        "duplo_green_label": "CHANCE MODERADA DE DUPLO GREEN",
+        "pa_label": "EVITAR PA NESSE JOGO",
+        "pa_tier": "evitar",
+        "raw_score": 0.2364
+      }
+    },
+    {
+      "fixture_id": 1492458,
+      "kickoff_utc": "2026-11-19T22:30:00+00:00",
+      "league_label": "Brasileirão Série A",
+      "league_order": 0,
+      "home_team": "Vasco DA Gama",
+      "away_team": "Internacional",
+      "model": {
+        "lambda_home": 1.66,
+        "lambda_away": 1.23,
+        "favorite_side": "home",
+        "prob_lead_2_home": 0.3379,
+        "prob_lead_2_away": 0.1584,
+        "prob_lead_3_home": 0.1647,
+        "prob_lead_3_away": 0.0593,
+        "duplo_green_label": "CHANCE MODERADA DE DUPLO GREEN",
+        "pa_label": "PEGAR PA NESSE TIME: Vasco DA Gama",
+        "pa_tier": "moderado",
+        "raw_score": 0.2859
+      }
+    },
+    {
+      "fixture_id": 1492459,
+      "kickoff_utc": "2026-11-19T22:30:00+00:00",
+      "league_label": "Brasileirão Série A",
+      "league_order": 0,
+      "home_team": "Vitoria",
+      "away_team": "RB Bragantino",
+      "model": {
+        "lambda_home": 1.26,
+        "lambda_away": 1.12,
+        "favorite_side": "home",
+        "prob_lead_2_home": 0.2368,
+        "prob_lead_2_away": 0.1767,
+        "prob_lead_3_home": 0.0936,
+        "prob_lead_3_away": 0.0627,
+        "duplo_green_label": "CHANCE QUASE NULA DE DUPLO GREEN",
+        "pa_label": "EVITAR PA NESSE JOGO",
+        "pa_tier": "evitar",
+        "raw_score": 0.1938
       }
     }
   ]
