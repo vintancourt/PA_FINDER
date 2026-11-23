@@ -1,94 +1,10 @@
 {
-  "generated_at": "2026-11-22T18:57:53.397947",
+  "generated_at": "2026-11-23T23:18:35.143291",
   "calls_used": 2,
   "call_budget": 90,
-  "fd_calls_used": 11,
-  "total_fixtures_evaluated": 62,
+  "fd_calls_used": 39,
+  "total_fixtures_evaluated": 33,
   "ranking": [
-    {
-      "fixture_id": 1492465,
-      "kickoff_utc": "2026-11-22T00:00:00+00:00",
-      "league_label": "Brasileirão Série A",
-      "league_order": 0,
-      "home_team": "Chapecoense-sc",
-      "away_team": "Cruzeiro",
-      "model": {
-        "lambda_home": 1.31,
-        "lambda_away": 2.01,
-        "favorite_side": "away",
-        "prob_lead_2_home": 0.141,
-        "prob_lead_2_away": 0.4245,
-        "prob_lead_3_home": 0.0544,
-        "prob_lead_3_away": 0.2363,
-        "duplo_green_label": "CHANCE MODERADA DE DUPLO GREEN",
-        "pa_label": "PEGAR PA NESSE TIME: Cruzeiro",
-        "pa_tier": "moderado",
-        "raw_score": 0.368
-      }
-    },
-    {
-      "fixture_id": 1492460,
-      "kickoff_utc": "2026-11-22T19:00:00+00:00",
-      "league_label": "Brasileirão Série A",
-      "league_order": 0,
-      "home_team": "Atletico Paranaense",
-      "away_team": "Remo",
-      "model": {
-        "lambda_home": 1.85,
-        "lambda_away": 1.24,
-        "favorite_side": "home",
-        "prob_lead_2_home": 0.3913,
-        "prob_lead_2_away": 0.142,
-        "prob_lead_3_home": 0.2061,
-        "prob_lead_3_away": 0.0529,
-        "duplo_green_label": "CHANCE MODERADA DE DUPLO GREEN",
-        "pa_label": "PEGAR PA NESSE TIME: Atletico Paranaense",
-        "pa_tier": "moderado",
-        "raw_score": 0.3358
-      }
-    },
-    {
-      "fixture_id": 1492466,
-      "kickoff_utc": "2026-11-22T21:30:00+00:00",
-      "league_label": "Brasileirão Série A",
-      "league_order": 0,
-      "home_team": "Fluminense",
-      "away_team": "Mirassol",
-      "model": {
-        "lambda_home": 1.68,
-        "lambda_away": 1.0,
-        "favorite_side": "home",
-        "prob_lead_2_home": 0.3892,
-        "prob_lead_2_away": 0.1091,
-        "prob_lead_3_home": 0.1942,
-        "prob_lead_3_away": 0.0345,
-        "duplo_green_label": "CHANCE MODERADA DE DUPLO GREEN",
-        "pa_label": "PEGAR PA NESSE TIME: Fluminense",
-        "pa_tier": "moderado",
-        "raw_score": 0.3307
-      }
-    },
-    {
-      "fixture_id": 1492464,
-      "kickoff_utc": "2026-11-22T22:30:00+00:00",
-      "league_label": "Brasileirão Série A",
-      "league_order": 0,
-      "home_team": "RB Bragantino",
-      "away_team": "Vasco DA Gama",
-      "model": {
-        "lambda_home": 1.58,
-        "lambda_away": 1.2,
-        "favorite_side": "home",
-        "prob_lead_2_home": 0.3212,
-        "prob_lead_2_away": 0.1584,
-        "prob_lead_3_home": 0.1512,
-        "prob_lead_3_away": 0.0581,
-        "duplo_green_label": "CHANCE MODERADA DE DUPLO GREEN",
-        "pa_label": "PEGAR PA NESSE TIME: RB Bragantino",
-        "pa_tier": "moderado",
-        "raw_score": 0.2702
-      }
-    },
     {
       "fixture_id": 1492467,
       "kickoff_utc": "2026-11-23T22:30:00+00:00",
@@ -132,87 +48,45 @@
       }
     },
     {
-      "fixture_id": 1650248,
-      "kickoff_utc": "2026-11-22T19:00:00+00:00",
-      "league_label": "Brasileirão Série B",
-      "league_order": 1,
-      "home_team": "Criciuma",
-      "away_team": "Fortaleza EC",
+      "fixture_id": 1492469,
+      "kickoff_utc": "2026-11-24T00:00:00+00:00",
+      "league_label": "Brasileirão Série A",
+      "league_order": 0,
+      "home_team": "Santos",
+      "away_team": "Gremio",
       "model": {
-        "lambda_home": null,
-        "lambda_away": null,
-        "favorite_side": null,
-        "prob_lead_2_home": null,
-        "prob_lead_2_away": null,
-        "prob_lead_3_home": null,
-        "prob_lead_3_away": null,
-        "duplo_green_label": "SEM DADOS SUFICIENTES",
-        "pa_label": "SEM DADOS SUFICIENTES",
-        "pa_tier": "sem_dados",
-        "raw_score": -1
-      }
-    },
-    {
-      "fixture_id": 1650247,
-      "kickoff_utc": "2026-11-22T21:30:00+00:00",
-      "league_label": "Brasileirão Série B",
-      "league_order": 1,
-      "home_team": "Atletico Goianiense",
-      "away_team": "Vila Nova",
-      "model": {
-        "lambda_home": null,
-        "lambda_away": null,
-        "favorite_side": null,
-        "prob_lead_2_home": null,
-        "prob_lead_2_away": null,
-        "prob_lead_3_home": null,
-        "prob_lead_3_away": null,
-        "duplo_green_label": "SEM DADOS SUFICIENTES",
-        "pa_label": "SEM DADOS SUFICIENTES",
-        "pa_tier": "sem_dados",
-        "raw_score": -1
-      }
-    },
-    {
-      "fixture_id": 1557472,
-      "kickoff_utc": "2026-11-22T14:00:00+00:00",
-      "league_label": "Premier League",
-      "league_order": 5,
-      "home_team": "Hull City",
-      "away_team": "Brighton",
-      "model": {
-        "lambda_home": 1.28,
-        "lambda_away": 1.32,
-        "favorite_side": "away",
-        "prob_lead_2_home": 0.2133,
-        "prob_lead_2_away": 0.2285,
-        "prob_lead_3_home": 0.0843,
-        "prob_lead_3_away": 0.0926,
-        "duplo_green_label": "CHANCE QUASE NULA DE DUPLO GREEN",
-        "pa_label": "EVITAR PA NESSE JOGO",
-        "pa_tier": "evitar",
-        "raw_score": 0.1877
-      }
-    },
-    {
-      "fixture_id": 1557473,
-      "kickoff_utc": "2026-11-22T16:30:00+00:00",
-      "league_label": "Premier League",
-      "league_order": 5,
-      "home_team": "Liverpool",
-      "away_team": "Manchester United",
-      "model": {
-        "lambda_home": 1.58,
-        "lambda_away": 1.07,
+        "lambda_home": 1.42,
+        "lambda_away": 1.01,
         "favorite_side": "home",
-        "prob_lead_2_home": 0.3446,
-        "prob_lead_2_away": 0.1305,
-        "prob_lead_3_home": 0.1634,
-        "prob_lead_3_away": 0.0437,
+        "prob_lead_2_home": 0.304,
+        "prob_lead_2_away": 0.1319,
+        "prob_lead_3_home": 0.1328,
+        "prob_lead_3_away": 0.0424,
         "duplo_green_label": "CHANCE MODERADA DE DUPLO GREEN",
-        "pa_label": "PEGAR PA NESSE TIME: Liverpool",
+        "pa_label": "PEGAR PA NESSE TIME: Santos",
         "pa_tier": "moderado",
-        "raw_score": 0.2902
+        "raw_score": 0.2527
+      }
+    },
+    {
+      "fixture_id": 1492472,
+      "kickoff_utc": "2026-11-24T21:00:00+00:00",
+      "league_label": "Brasileirão Série A",
+      "league_order": 0,
+      "home_team": "Chapecoense-sc",
+      "away_team": "Palmeiras",
+      "model": {
+        "lambda_home": 1.1,
+        "lambda_away": 1.92,
+        "favorite_side": "away",
+        "prob_lead_2_home": 0.1087,
+        "prob_lead_2_away": 0.4449,
+        "prob_lead_3_home": 0.0366,
+        "prob_lead_3_away": 0.2437,
+        "duplo_green_label": "CHANCE MODERADA DE DUPLO GREEN",
+        "pa_label": "PEGAR PA NESSE TIME: Palmeiras",
+        "pa_tier": "moderado",
+        "raw_score": 0.3846
       }
     },
     {
@@ -237,108 +111,171 @@
       }
     },
     {
-      "fixture_id": 1563264,
-      "kickoff_utc": "2026-11-22T12:00:00+00:00",
+      "fixture_id": 1563275,
+      "kickoff_utc": "2026-11-24T19:45:00+00:00",
       "league_label": "Championship (Inglaterra)",
       "league_order": 6,
-      "home_team": "Burnley",
-      "away_team": "Blackburn",
+      "home_team": "Bristol City",
+      "away_team": "Wrexham",
       "model": {
-        "lambda_home": 1.16,
-        "lambda_away": 1.14,
-        "favorite_side": "home",
-        "prob_lead_2_home": 0.2038,
-        "prob_lead_2_away": 0.196,
-        "prob_lead_3_home": 0.0751,
-        "prob_lead_3_away": 0.0712,
-        "duplo_green_label": "CHANCE QUASE NULA DE DUPLO GREEN",
-        "pa_label": "EVITAR PA NESSE JOGO",
-        "pa_tier": "evitar",
-        "raw_score": 0.1652
-      }
-    },
-    {
-      "fixture_id": 1570455,
-      "kickoff_utc": "2026-11-22T13:00:00+00:00",
-      "league_label": "LaLiga",
-      "league_order": 7,
-      "home_team": "Barcelona",
-      "away_team": "Villarreal",
-      "model": {
-        "lambda_home": 2.75,
-        "lambda_away": 1.27,
-        "favorite_side": "home",
-        "prob_lead_2_home": 0.6468,
-        "prob_lead_2_away": 0.0799,
-        "prob_lead_3_home": 0.4469,
-        "prob_lead_3_away": 0.0288,
-        "duplo_green_label": "GRANDE CHANCE DE DUPLO GREEN",
-        "pa_label": "PEGAR PA NESSE TIME: Barcelona",
-        "pa_tier": "forte",
-        "raw_score": 0.5868
-      }
-    },
-    {
-      "fixture_id": 1570459,
-      "kickoff_utc": "2026-11-22T15:15:00+00:00",
-      "league_label": "LaLiga",
-      "league_order": 7,
-      "home_team": "Racing Santander",
-      "away_team": "Real Sociedad",
-      "model": {
-        "lambda_home": 1.81,
-        "lambda_away": 1.96,
+        "lambda_home": 1.12,
+        "lambda_away": 1.37,
         "favorite_side": "away",
-        "prob_lead_2_home": 0.2545,
-        "prob_lead_2_away": 0.3152,
-        "prob_lead_3_home": 0.1253,
-        "prob_lead_3_away": 0.1661,
-        "duplo_green_label": "CHANCE MODERADA DE DUPLO GREEN",
-        "pa_label": "PEGAR PA NESSE TIME: Real Sociedad",
-        "pa_tier": "moderado",
-        "raw_score": 0.2705
-      }
-    },
-    {
-      "fixture_id": 1570458,
-      "kickoff_utc": "2026-11-22T17:30:00+00:00",
-      "league_label": "LaLiga",
-      "league_order": 7,
-      "home_team": "Osasuna",
-      "away_team": "Malaga",
-      "model": {
-        "lambda_home": 1.37,
-        "lambda_away": 0.78,
-        "favorite_side": "home",
-        "prob_lead_2_home": 0.3307,
-        "prob_lead_2_away": 0.0882,
-        "prob_lead_3_home": 0.1426,
-        "prob_lead_3_away": 0.023,
-        "duplo_green_label": "CHANCE MODERADA DE DUPLO GREEN",
-        "pa_label": "PEGAR PA NESSE TIME: Osasuna",
-        "pa_tier": "moderado",
-        "raw_score": 0.2743
-      }
-    },
-    {
-      "fixture_id": 1570456,
-      "kickoff_utc": "2026-11-22T20:00:00+00:00",
-      "league_label": "LaLiga",
-      "league_order": 7,
-      "home_team": "Getafe",
-      "away_team": "Atletico Madrid",
-      "model": {
-        "lambda_home": 1.23,
-        "lambda_away": 1.18,
-        "favorite_side": "home",
-        "prob_lead_2_home": 0.219,
-        "prob_lead_2_away": 0.1976,
-        "prob_lead_3_home": 0.0846,
-        "prob_lead_3_away": 0.0735,
+        "prob_lead_2_home": 0.163,
+        "prob_lead_2_away": 0.2701,
+        "prob_lead_3_home": 0.0573,
+        "prob_lead_3_away": 0.1141,
         "duplo_green_label": "CHANCE QUASE NULA DE DUPLO GREEN",
         "pa_label": "EVITAR PA NESSE JOGO",
         "pa_tier": "evitar",
-        "raw_score": 0.1787
+        "raw_score": 0.2233
+      }
+    },
+    {
+      "fixture_id": 1563276,
+      "kickoff_utc": "2026-11-24T19:45:00+00:00",
+      "league_label": "Championship (Inglaterra)",
+      "league_order": 6,
+      "home_team": "Cardiff",
+      "away_team": "Preston",
+      "model": {
+        "lambda_home": 1.89,
+        "lambda_away": 1.79,
+        "favorite_side": "home",
+        "prob_lead_2_home": 0.2989,
+        "prob_lead_2_away": 0.2612,
+        "prob_lead_3_home": 0.1534,
+        "prob_lead_3_away": 0.1284,
+        "duplo_green_label": "CHANCE MODERADA DE DUPLO GREEN",
+        "pa_label": "EVITAR PA NESSE JOGO",
+        "pa_tier": "evitar",
+        "raw_score": 0.2553
+      }
+    },
+    {
+      "fixture_id": 1563277,
+      "kickoff_utc": "2026-11-24T19:45:00+00:00",
+      "league_label": "Championship (Inglaterra)",
+      "league_order": 6,
+      "home_team": "Charlton",
+      "away_team": "Lincoln",
+      "model": {
+        "lambda_home": 1.45,
+        "lambda_away": 1.28,
+        "favorite_side": "home",
+        "prob_lead_2_home": 0.2657,
+        "prob_lead_2_away": 0.1945,
+        "prob_lead_3_home": 0.1159,
+        "prob_lead_3_away": 0.0759,
+        "duplo_green_label": "CHANCE QUASE NULA DE DUPLO GREEN",
+        "pa_label": "EVITAR PA NESSE JOGO",
+        "pa_tier": "evitar",
+        "raw_score": 0.2208
+      }
+    },
+    {
+      "fixture_id": 1563278,
+      "kickoff_utc": "2026-11-24T19:45:00+00:00",
+      "league_label": "Championship (Inglaterra)",
+      "league_order": 6,
+      "home_team": "Middlesbrough",
+      "away_team": "Swansea",
+      "model": {
+        "lambda_home": 2.17,
+        "lambda_away": 0.55,
+        "favorite_side": "home",
+        "prob_lead_2_home": 0.6779,
+        "prob_lead_2_away": 0.0234,
+        "prob_lead_3_home": 0.4267,
+        "prob_lead_3_away": 0.0043,
+        "duplo_green_label": "GRANDE CHANCE DE DUPLO GREEN",
+        "pa_label": "PEGAR PA NESSE TIME: Middlesbrough",
+        "pa_tier": "forte",
+        "raw_score": 0.6025
+      }
+    },
+    {
+      "fixture_id": 1563279,
+      "kickoff_utc": "2026-11-24T19:45:00+00:00",
+      "league_label": "Championship (Inglaterra)",
+      "league_order": 6,
+      "home_team": "Norwich",
+      "away_team": "QPR",
+      "model": {
+        "lambda_home": 1.77,
+        "lambda_away": 1.45,
+        "favorite_side": "home",
+        "prob_lead_2_home": 0.329,
+        "prob_lead_2_away": 0.1949,
+        "prob_lead_3_home": 0.1655,
+        "prob_lead_3_away": 0.0822,
+        "duplo_green_label": "CHANCE MODERADA DE DUPLO GREEN",
+        "pa_label": "PEGAR PA NESSE TIME: Norwich",
+        "pa_tier": "moderado",
+        "raw_score": 0.28
+      }
+    },
+    {
+      "fixture_id": 1563280,
+      "kickoff_utc": "2026-11-24T19:45:00+00:00",
+      "league_label": "Championship (Inglaterra)",
+      "league_order": 6,
+      "home_team": "Portsmouth",
+      "away_team": "West Ham",
+      "model": {
+        "lambda_home": 1.99,
+        "lambda_away": 1.15,
+        "favorite_side": "home",
+        "prob_lead_2_home": 0.456,
+        "prob_lead_2_away": 0.1122,
+        "prob_lead_3_home": 0.2557,
+        "prob_lead_3_away": 0.0391,
+        "duplo_green_label": "CHANCE MODERADA DE DUPLO GREEN",
+        "pa_label": "PEGAR PA NESSE TIME: Portsmouth",
+        "pa_tier": "forte",
+        "raw_score": 0.3959
+      }
+    },
+    {
+      "fixture_id": 1563281,
+      "kickoff_utc": "2026-11-24T19:45:00+00:00",
+      "league_label": "Championship (Inglaterra)",
+      "league_order": 6,
+      "home_team": "Sheffield Utd",
+      "away_team": "Southampton",
+      "model": {
+        "lambda_home": 1.49,
+        "lambda_away": 1.28,
+        "favorite_side": "home",
+        "prob_lead_2_home": 0.2783,
+        "prob_lead_2_away": 0.1893,
+        "prob_lead_3_home": 0.1242,
+        "prob_lead_3_away": 0.0738,
+        "duplo_green_label": "CHANCE QUASE NULA DE DUPLO GREEN",
+        "pa_label": "EVITAR PA NESSE JOGO",
+        "pa_tier": "evitar",
+        "raw_score": 0.2321
+      }
+    },
+    {
+      "fixture_id": 1563282,
+      "kickoff_utc": "2026-11-24T20:00:00+00:00",
+      "league_label": "Championship (Inglaterra)",
+      "league_order": 6,
+      "home_team": "Wolves",
+      "away_team": "Derby",
+      "model": {
+        "lambda_home": null,
+        "lambda_away": null,
+        "favorite_side": null,
+        "prob_lead_2_home": null,
+        "prob_lead_2_away": null,
+        "prob_lead_3_home": null,
+        "prob_lead_3_away": null,
+        "duplo_green_label": "SEM DADOS SUFICIENTES",
+        "pa_label": "SEM DADOS SUFICIENTES",
+        "pa_tier": "sem_dados",
+        "raw_score": -1
       }
     },
     {
@@ -363,111 +300,6 @@
       }
     },
     {
-      "fixture_id": 1570030,
-      "kickoff_utc": "2026-11-22T13:00:00+00:00",
-      "league_label": "LaLiga 2",
-      "league_order": 8,
-      "home_team": "Cordoba",
-      "away_team": "Oviedo",
-      "model": {
-        "lambda_home": null,
-        "lambda_away": null,
-        "favorite_side": null,
-        "prob_lead_2_home": null,
-        "prob_lead_2_away": null,
-        "prob_lead_3_home": null,
-        "prob_lead_3_away": null,
-        "duplo_green_label": "SEM DADOS SUFICIENTES",
-        "pa_label": "SEM DADOS SUFICIENTES",
-        "pa_tier": "sem_dados",
-        "raw_score": -1
-      }
-    },
-    {
-      "fixture_id": 1570031,
-      "kickoff_utc": "2026-11-22T15:15:00+00:00",
-      "league_label": "LaLiga 2",
-      "league_order": 8,
-      "home_team": "Sporting Gijon",
-      "away_team": "Las Palmas",
-      "model": {
-        "lambda_home": null,
-        "lambda_away": null,
-        "favorite_side": null,
-        "prob_lead_2_home": null,
-        "prob_lead_2_away": null,
-        "prob_lead_3_home": null,
-        "prob_lead_3_away": null,
-        "duplo_green_label": "SEM DADOS SUFICIENTES",
-        "pa_label": "SEM DADOS SUFICIENTES",
-        "pa_tier": "sem_dados",
-        "raw_score": -1
-      }
-    },
-    {
-      "fixture_id": 1570028,
-      "kickoff_utc": "2026-11-22T17:30:00+00:00",
-      "league_label": "LaLiga 2",
-      "league_order": 8,
-      "home_team": "Celta de Vigo II",
-      "away_team": "Valladolid",
-      "model": {
-        "lambda_home": null,
-        "lambda_away": null,
-        "favorite_side": null,
-        "prob_lead_2_home": null,
-        "prob_lead_2_away": null,
-        "prob_lead_3_home": null,
-        "prob_lead_3_away": null,
-        "duplo_green_label": "SEM DADOS SUFICIENTES",
-        "pa_label": "SEM DADOS SUFICIENTES",
-        "pa_tier": "sem_dados",
-        "raw_score": -1
-      }
-    },
-    {
-      "fixture_id": 1570032,
-      "kickoff_utc": "2026-11-22T17:30:00+00:00",
-      "league_label": "LaLiga 2",
-      "league_order": 8,
-      "home_team": "Girona",
-      "away_team": "Eibar",
-      "model": {
-        "lambda_home": null,
-        "lambda_away": null,
-        "favorite_side": null,
-        "prob_lead_2_home": null,
-        "prob_lead_2_away": null,
-        "prob_lead_3_home": null,
-        "prob_lead_3_away": null,
-        "duplo_green_label": "SEM DADOS SUFICIENTES",
-        "pa_label": "SEM DADOS SUFICIENTES",
-        "pa_tier": "sem_dados",
-        "raw_score": -1
-      }
-    },
-    {
-      "fixture_id": 1570026,
-      "kickoff_utc": "2026-11-22T20:00:00+00:00",
-      "league_label": "LaLiga 2",
-      "league_order": 8,
-      "home_team": "Burgos",
-      "away_team": "Albacete",
-      "model": {
-        "lambda_home": null,
-        "lambda_away": null,
-        "favorite_side": null,
-        "prob_lead_2_home": null,
-        "prob_lead_2_away": null,
-        "prob_lead_3_home": null,
-        "prob_lead_3_away": null,
-        "duplo_green_label": "SEM DADOS SUFICIENTES",
-        "pa_label": "SEM DADOS SUFICIENTES",
-        "pa_tier": "sem_dados",
-        "raw_score": -1
-      }
-    },
-    {
       "fixture_id": 1570029,
       "kickoff_utc": "2026-11-23T19:30:00+00:00",
       "league_label": "LaLiga 2",
@@ -486,279 +318,6 @@
         "pa_label": "SEM DADOS SUFICIENTES",
         "pa_tier": "sem_dados",
         "raw_score": -1
-      }
-    },
-    {
-      "fixture_id": 1575224,
-      "kickoff_utc": "2026-11-22T14:30:00+00:00",
-      "league_label": "Bundesliga",
-      "league_order": 9,
-      "home_team": "FC Augsburg",
-      "away_team": "FSV Mainz 05",
-      "model": {
-        "lambda_home": 1.63,
-        "lambda_away": 1.81,
-        "favorite_side": "away",
-        "prob_lead_2_home": 0.2331,
-        "prob_lead_2_away": 0.307,
-        "prob_lead_3_home": 0.1074,
-        "prob_lead_3_away": 0.1548,
-        "duplo_green_label": "CHANCE MODERADA DE DUPLO GREEN",
-        "pa_label": "PEGAR PA NESSE TIME: FSV Mainz 05",
-        "pa_tier": "moderado",
-        "raw_score": 0.2613
-      }
-    },
-    {
-      "fixture_id": 1575227,
-      "kickoff_utc": "2026-11-22T16:30:00+00:00",
-      "league_label": "Bundesliga",
-      "league_order": 9,
-      "home_team": "Werder Bremen",
-      "away_team": "Hamburger SV",
-      "model": {
-        "lambda_home": 2.16,
-        "lambda_away": 1.21,
-        "favorite_side": "home",
-        "prob_lead_2_home": 0.4934,
-        "prob_lead_2_away": 0.1098,
-        "prob_lead_3_home": 0.2919,
-        "prob_lead_3_away": 0.0394,
-        "duplo_green_label": "CHANCE MODERADA DE DUPLO GREEN",
-        "pa_label": "PEGAR PA NESSE TIME: Werder Bremen",
-        "pa_tier": "forte",
-        "raw_score": 0.433
-      }
-    },
-    {
-      "fixture_id": 1576234,
-      "kickoff_utc": "2026-11-22T12:30:00+00:00",
-      "league_label": "2. Bundesliga",
-      "league_order": 10,
-      "home_team": "Energie Cottbus",
-      "away_team": "Hertha BSC",
-      "model": {
-        "lambda_home": null,
-        "lambda_away": null,
-        "favorite_side": null,
-        "prob_lead_2_home": null,
-        "prob_lead_2_away": null,
-        "prob_lead_3_home": null,
-        "prob_lead_3_away": null,
-        "duplo_green_label": "SEM DADOS SUFICIENTES",
-        "pa_label": "SEM DADOS SUFICIENTES",
-        "pa_tier": "sem_dados",
-        "raw_score": -1
-      }
-    },
-    {
-      "fixture_id": 1576237,
-      "kickoff_utc": "2026-11-22T12:30:00+00:00",
-      "league_label": "2. Bundesliga",
-      "league_order": 10,
-      "home_team": "1. FC Kaiserslautern",
-      "away_team": "Dynamo Dresden",
-      "model": {
-        "lambda_home": null,
-        "lambda_away": null,
-        "favorite_side": null,
-        "prob_lead_2_home": null,
-        "prob_lead_2_away": null,
-        "prob_lead_3_home": null,
-        "prob_lead_3_away": null,
-        "duplo_green_label": "SEM DADOS SUFICIENTES",
-        "pa_label": "SEM DADOS SUFICIENTES",
-        "pa_tier": "sem_dados",
-        "raw_score": -1
-      }
-    },
-    {
-      "fixture_id": 1576238,
-      "kickoff_utc": "2026-11-22T12:30:00+00:00",
-      "league_label": "2. Bundesliga",
-      "league_order": 10,
-      "home_team": "Karlsruher SC",
-      "away_team": "VfL Osnabrück",
-      "model": {
-        "lambda_home": null,
-        "lambda_away": null,
-        "favorite_side": null,
-        "prob_lead_2_home": null,
-        "prob_lead_2_away": null,
-        "prob_lead_3_home": null,
-        "prob_lead_3_away": null,
-        "duplo_green_label": "SEM DADOS SUFICIENTES",
-        "pa_label": "SEM DADOS SUFICIENTES",
-        "pa_tier": "sem_dados",
-        "raw_score": -1
-      }
-    },
-    {
-      "fixture_id": 1552825,
-      "kickoff_utc": "2026-11-22T14:00:00+00:00",
-      "league_label": "Ligue 1",
-      "league_order": 11,
-      "home_team": "Paris FC",
-      "away_team": "Angers",
-      "model": {
-        "lambda_home": 2.23,
-        "lambda_away": 0.94,
-        "favorite_side": "home",
-        "prob_lead_2_home": 0.5851,
-        "prob_lead_2_away": 0.0638,
-        "prob_lead_3_home": 0.3623,
-        "prob_lead_3_away": 0.0185,
-        "duplo_green_label": "GRANDE CHANCE DE DUPLO GREEN",
-        "pa_label": "PEGAR PA NESSE TIME: Paris FC",
-        "pa_tier": "forte",
-        "raw_score": 0.5183
-      }
-    },
-    {
-      "fixture_id": 1552821,
-      "kickoff_utc": "2026-11-22T16:15:00+00:00",
-      "league_label": "Ligue 1",
-      "league_order": 11,
-      "home_team": "Lorient",
-      "away_team": "Rennes",
-      "model": {
-        "lambda_home": null,
-        "lambda_away": null,
-        "favorite_side": null,
-        "prob_lead_2_home": null,
-        "prob_lead_2_away": null,
-        "prob_lead_3_home": null,
-        "prob_lead_3_away": null,
-        "duplo_green_label": "SEM DADOS SUFICIENTES",
-        "pa_label": "SEM DADOS SUFICIENTES",
-        "pa_tier": "sem_dados",
-        "raw_score": -1
-      }
-    },
-    {
-      "fixture_id": 1552822,
-      "kickoff_utc": "2026-11-22T19:45:00+00:00",
-      "league_label": "Ligue 1",
-      "league_order": 11,
-      "home_team": "Marseille",
-      "away_team": "Le Mans",
-      "model": {
-        "lambda_home": 2.22,
-        "lambda_away": 1.19,
-        "favorite_side": "home",
-        "prob_lead_2_home": 0.5161,
-        "prob_lead_2_away": 0.102,
-        "prob_lead_3_home": 0.3115,
-        "prob_lead_3_away": 0.036,
-        "duplo_green_label": "GRANDE CHANCE DE DUPLO GREEN",
-        "pa_label": "PEGAR PA NESSE TIME: Marseille",
-        "pa_tier": "forte",
-        "raw_score": 0.4547
-      }
-    },
-    {
-      "fixture_id": 1550201,
-      "kickoff_utc": "2026-11-22T11:30:00+00:00",
-      "league_label": "Série A",
-      "league_order": 12,
-      "home_team": "Juventus",
-      "away_team": "Venezia",
-      "model": {
-        "lambda_home": 1.57,
-        "lambda_away": 0.7,
-        "favorite_side": "home",
-        "prob_lead_2_home": 0.4222,
-        "prob_lead_2_away": 0.0615,
-        "prob_lead_3_home": 0.205,
-        "prob_lead_3_away": 0.0144,
-        "duplo_green_label": "CHANCE MODERADA DE DUPLO GREEN",
-        "pa_label": "PEGAR PA NESSE TIME: Juventus",
-        "pa_tier": "moderado",
-        "raw_score": 0.3571
-      }
-    },
-    {
-      "fixture_id": 1550199,
-      "kickoff_utc": "2026-11-22T14:00:00+00:00",
-      "league_label": "Série A",
-      "league_order": 12,
-      "home_team": "Bologna",
-      "away_team": "Udinese",
-      "model": {
-        "lambda_home": 1.55,
-        "lambda_away": 1.53,
-        "favorite_side": "home",
-        "prob_lead_2_home": 0.2539,
-        "prob_lead_2_away": 0.2456,
-        "prob_lead_3_home": 0.1147,
-        "prob_lead_3_away": 0.1097,
-        "duplo_green_label": "CHANCE QUASE NULA DE DUPLO GREEN",
-        "pa_label": "EVITAR PA NESSE JOGO",
-        "pa_tier": "evitar",
-        "raw_score": 0.2121
-      }
-    },
-    {
-      "fixture_id": 1550206,
-      "kickoff_utc": "2026-11-22T14:00:00+00:00",
-      "league_label": "Série A",
-      "league_order": 12,
-      "home_team": "Sassuolo",
-      "away_team": "Genoa",
-      "model": {
-        "lambda_home": 1.56,
-        "lambda_away": 1.73,
-        "favorite_side": "away",
-        "prob_lead_2_home": 0.2283,
-        "prob_lead_2_away": 0.2965,
-        "prob_lead_3_home": 0.1025,
-        "prob_lead_3_away": 0.1452,
-        "duplo_green_label": "CHANCE MODERADA DE DUPLO GREEN",
-        "pa_label": "EVITAR PA NESSE JOGO",
-        "pa_tier": "evitar",
-        "raw_score": 0.2511
-      }
-    },
-    {
-      "fixture_id": 1550197,
-      "kickoff_utc": "2026-11-22T17:00:00+00:00",
-      "league_label": "Série A",
-      "league_order": 12,
-      "home_team": "AC Milan",
-      "away_team": "Frosinone",
-      "model": {
-        "lambda_home": 2.08,
-        "lambda_away": 1.56,
-        "favorite_side": "home",
-        "prob_lead_2_home": 0.3932,
-        "prob_lead_2_away": 0.1829,
-        "prob_lead_3_home": 0.22,
-        "prob_lead_3_away": 0.08,
-        "duplo_green_label": "CHANCE MODERADA DE DUPLO GREEN",
-        "pa_label": "PEGAR PA NESSE TIME: AC Milan",
-        "pa_tier": "moderado",
-        "raw_score": 0.3412
-      }
-    },
-    {
-      "fixture_id": 1550198,
-      "kickoff_utc": "2026-11-22T19:45:00+00:00",
-      "league_label": "Série A",
-      "league_order": 12,
-      "home_team": "Atalanta",
-      "away_team": "Inter",
-      "model": {
-        "lambda_home": 1.38,
-        "lambda_away": 1.96,
-        "favorite_side": "away",
-        "prob_lead_2_home": 0.1585,
-        "prob_lead_2_away": 0.3967,
-        "prob_lead_3_home": 0.0636,
-        "prob_lead_3_away": 0.2159,
-        "duplo_green_label": "CHANCE MODERADA DE DUPLO GREEN",
-        "pa_label": "PEGAR PA NESSE TIME: Inter",
-        "pa_tier": "moderado",
-        "raw_score": 0.3424
       }
     },
     {
@@ -783,243 +342,12 @@
       }
     },
     {
-      "fixture_id": 1584468,
-      "kickoff_utc": "2026-11-22T10:30:00+00:00",
-      "league_label": "SuperLig (Turquia)",
-      "league_order": 14,
-      "home_team": "Erzurumspor FK",
-      "away_team": "Göztepe",
-      "model": {
-        "lambda_home": null,
-        "lambda_away": null,
-        "favorite_side": null,
-        "prob_lead_2_home": null,
-        "prob_lead_2_away": null,
-        "prob_lead_3_home": null,
-        "prob_lead_3_away": null,
-        "duplo_green_label": "SEM DADOS SUFICIENTES",
-        "pa_label": "SEM DADOS SUFICIENTES",
-        "pa_tier": "sem_dados",
-        "raw_score": -1
-      }
-    },
-    {
-      "fixture_id": 1584471,
-      "kickoff_utc": "2026-11-22T13:00:00+00:00",
-      "league_label": "SuperLig (Turquia)",
-      "league_order": 14,
-      "home_team": "Kasımpaşa",
-      "away_team": "Alanyaspor",
-      "model": {
-        "lambda_home": null,
-        "lambda_away": null,
-        "favorite_side": null,
-        "prob_lead_2_home": null,
-        "prob_lead_2_away": null,
-        "prob_lead_3_home": null,
-        "prob_lead_3_away": null,
-        "duplo_green_label": "SEM DADOS SUFICIENTES",
-        "pa_label": "SEM DADOS SUFICIENTES",
-        "pa_tier": "sem_dados",
-        "raw_score": -1
-      }
-    },
-    {
-      "fixture_id": 1584473,
-      "kickoff_utc": "2026-11-22T13:00:00+00:00",
-      "league_label": "SuperLig (Turquia)",
-      "league_order": 14,
-      "home_team": "Konyaspor",
-      "away_team": "Beşiktaş",
-      "model": {
-        "lambda_home": null,
-        "lambda_away": null,
-        "favorite_side": null,
-        "prob_lead_2_home": null,
-        "prob_lead_2_away": null,
-        "prob_lead_3_home": null,
-        "prob_lead_3_away": null,
-        "duplo_green_label": "SEM DADOS SUFICIENTES",
-        "pa_label": "SEM DADOS SUFICIENTES",
-        "pa_tier": "sem_dados",
-        "raw_score": -1
-      }
-    },
-    {
-      "fixture_id": 1584474,
-      "kickoff_utc": "2026-11-22T16:00:00+00:00",
-      "league_label": "SuperLig (Turquia)",
-      "league_order": 14,
-      "home_team": "Trabzonspor",
-      "away_team": "Eyüpspor",
-      "model": {
-        "lambda_home": null,
-        "lambda_away": null,
-        "favorite_side": null,
-        "prob_lead_2_home": null,
-        "prob_lead_2_away": null,
-        "prob_lead_3_home": null,
-        "prob_lead_3_away": null,
-        "duplo_green_label": "SEM DADOS SUFICIENTES",
-        "pa_label": "SEM DADOS SUFICIENTES",
-        "pa_tier": "sem_dados",
-        "raw_score": -1
-      }
-    },
-    {
       "fixture_id": 1584467,
       "kickoff_utc": "2026-11-23T17:00:00+00:00",
       "league_label": "SuperLig (Turquia)",
       "league_order": 14,
       "home_team": "Başakşehir",
       "away_team": "Çorum FK",
-      "model": {
-        "lambda_home": null,
-        "lambda_away": null,
-        "favorite_side": null,
-        "prob_lead_2_home": null,
-        "prob_lead_2_away": null,
-        "prob_lead_3_home": null,
-        "prob_lead_3_away": null,
-        "duplo_green_label": "SEM DADOS SUFICIENTES",
-        "pa_label": "SEM DADOS SUFICIENTES",
-        "pa_tier": "sem_dados",
-        "raw_score": -1
-      }
-    },
-    {
-      "fixture_id": 1494804,
-      "kickoff_utc": "2026-11-22T16:00:00+00:00",
-      "league_label": "Eliteserien",
-      "league_order": 15,
-      "home_team": "Aalesund",
-      "away_team": "Rosenborg",
-      "model": {
-        "lambda_home": null,
-        "lambda_away": null,
-        "favorite_side": null,
-        "prob_lead_2_home": null,
-        "prob_lead_2_away": null,
-        "prob_lead_3_home": null,
-        "prob_lead_3_away": null,
-        "duplo_green_label": "SEM DADOS SUFICIENTES",
-        "pa_label": "SEM DADOS SUFICIENTES",
-        "pa_tier": "sem_dados",
-        "raw_score": -1
-      }
-    },
-    {
-      "fixture_id": 1494806,
-      "kickoff_utc": "2026-11-22T16:00:00+00:00",
-      "league_label": "Eliteserien",
-      "league_order": 15,
-      "home_team": "KFUM Oslo",
-      "away_team": "Brann",
-      "model": {
-        "lambda_home": null,
-        "lambda_away": null,
-        "favorite_side": null,
-        "prob_lead_2_home": null,
-        "prob_lead_2_away": null,
-        "prob_lead_3_home": null,
-        "prob_lead_3_away": null,
-        "duplo_green_label": "SEM DADOS SUFICIENTES",
-        "pa_label": "SEM DADOS SUFICIENTES",
-        "pa_tier": "sem_dados",
-        "raw_score": -1
-      }
-    },
-    {
-      "fixture_id": 1494807,
-      "kickoff_utc": "2026-11-22T16:00:00+00:00",
-      "league_label": "Eliteserien",
-      "league_order": 15,
-      "home_team": "Kristiansund BK",
-      "away_team": "Sandefjord",
-      "model": {
-        "lambda_home": null,
-        "lambda_away": null,
-        "favorite_side": null,
-        "prob_lead_2_home": null,
-        "prob_lead_2_away": null,
-        "prob_lead_3_home": null,
-        "prob_lead_3_away": null,
-        "duplo_green_label": "SEM DADOS SUFICIENTES",
-        "pa_label": "SEM DADOS SUFICIENTES",
-        "pa_tier": "sem_dados",
-        "raw_score": -1
-      }
-    },
-    {
-      "fixture_id": 1494809,
-      "kickoff_utc": "2026-11-22T18:15:00+00:00",
-      "league_label": "Eliteserien",
-      "league_order": 15,
-      "home_team": "Sarpsborg 08 FF",
-      "away_team": "Lillestrom",
-      "model": {
-        "lambda_home": null,
-        "lambda_away": null,
-        "favorite_side": null,
-        "prob_lead_2_home": null,
-        "prob_lead_2_away": null,
-        "prob_lead_3_home": null,
-        "prob_lead_3_away": null,
-        "duplo_green_label": "SEM DADOS SUFICIENTES",
-        "pa_label": "SEM DADOS SUFICIENTES",
-        "pa_tier": "sem_dados",
-        "raw_score": -1
-      }
-    },
-    {
-      "fixture_id": 1494340,
-      "kickoff_utc": "2026-11-22T13:00:00+00:00",
-      "league_label": "Allsvenskan",
-      "league_order": 16,
-      "home_team": "BK Hacken",
-      "away_team": "IF Elfsborg",
-      "model": {
-        "lambda_home": null,
-        "lambda_away": null,
-        "favorite_side": null,
-        "prob_lead_2_home": null,
-        "prob_lead_2_away": null,
-        "prob_lead_3_home": null,
-        "prob_lead_3_away": null,
-        "duplo_green_label": "SEM DADOS SUFICIENTES",
-        "pa_label": "SEM DADOS SUFICIENTES",
-        "pa_tier": "sem_dados",
-        "raw_score": -1
-      }
-    },
-    {
-      "fixture_id": 1494344,
-      "kickoff_utc": "2026-11-22T13:00:00+00:00",
-      "league_label": "Allsvenskan",
-      "league_order": 16,
-      "home_team": "Sirius",
-      "away_team": "Djurgardens IF",
-      "model": {
-        "lambda_home": null,
-        "lambda_away": null,
-        "favorite_side": null,
-        "prob_lead_2_home": null,
-        "prob_lead_2_away": null,
-        "prob_lead_3_home": null,
-        "prob_lead_3_away": null,
-        "duplo_green_label": "SEM DADOS SUFICIENTES",
-        "pa_label": "SEM DADOS SUFICIENTES",
-        "pa_tier": "sem_dados",
-        "raw_score": -1
-      }
-    },
-    {
-      "fixture_id": 1494338,
-      "kickoff_utc": "2026-11-22T15:30:00+00:00",
-      "league_label": "Allsvenskan",
-      "league_order": 16,
-      "home_team": "IF Brommapojkarna",
-      "away_team": "Halmstad",
       "model": {
         "lambda_home": null,
         "lambda_away": null,
@@ -1077,12 +405,12 @@
       }
     },
     {
-      "fixture_id": 1651119,
-      "kickoff_utc": "2026-11-22T21:00:00+00:00",
-      "league_label": "MLS",
-      "league_order": 23,
-      "home_team": "Nashville SC",
-      "away_team": "FC Cincinnati",
+      "fixture_id": 1635641,
+      "kickoff_utc": "2026-11-24T17:45:00+00:00",
+      "league_label": "Champions League",
+      "league_order": 17,
+      "home_team": "Bodo/Glimt",
+      "away_team": "Lask Linz",
       "model": {
         "lambda_home": null,
         "lambda_away": null,
@@ -1098,12 +426,54 @@
       }
     },
     {
-      "fixture_id": 1649493,
-      "kickoff_utc": "2026-11-22T23:30:00+00:00",
-      "league_label": "MLS",
-      "league_order": 23,
-      "home_team": "Chicago Fire",
-      "away_team": "Charlotte",
+      "fixture_id": 1635667,
+      "kickoff_utc": "2026-11-24T17:45:00+00:00",
+      "league_label": "Champions League",
+      "league_order": 17,
+      "home_team": "Galatasaray",
+      "away_team": "Aston Villa",
+      "model": {
+        "lambda_home": 2.1,
+        "lambda_away": 1.92,
+        "favorite_side": "home",
+        "prob_lead_2_home": 0.3319,
+        "prob_lead_2_away": 0.2588,
+        "prob_lead_3_home": 0.1821,
+        "prob_lead_3_away": 0.1314,
+        "duplo_green_label": "CHANCE MODERADA DE DUPLO GREEN",
+        "pa_label": "PEGAR PA NESSE TIME: Galatasaray",
+        "pa_tier": "moderado",
+        "raw_score": 0.287
+      }
+    },
+    {
+      "fixture_id": 1635611,
+      "kickoff_utc": "2026-11-24T20:00:00+00:00",
+      "league_label": "Champions League",
+      "league_order": 17,
+      "home_team": "Arsenal",
+      "away_team": "Borussia Dortmund",
+      "model": {
+        "lambda_home": 1.36,
+        "lambda_away": 0.71,
+        "favorite_side": "home",
+        "prob_lead_2_home": 0.3435,
+        "prob_lead_2_away": 0.0737,
+        "prob_lead_3_home": 0.1481,
+        "prob_lead_3_away": 0.0176,
+        "duplo_green_label": "CHANCE MODERADA DE DUPLO GREEN",
+        "pa_label": "PEGAR PA NESSE TIME: Arsenal",
+        "pa_tier": "moderado",
+        "raw_score": 0.2849
+      }
+    },
+    {
+      "fixture_id": 1635649,
+      "kickoff_utc": "2026-11-24T20:00:00+00:00",
+      "league_label": "Champions League",
+      "league_order": 17,
+      "home_team": "Como",
+      "away_team": "AEK Athens FC",
       "model": {
         "lambda_home": null,
         "lambda_away": null,
@@ -1116,6 +486,111 @@
         "pa_label": "SEM DADOS SUFICIENTES",
         "pa_tier": "sem_dados",
         "raw_score": -1
+      }
+    },
+    {
+      "fixture_id": 1635663,
+      "kickoff_utc": "2026-11-24T20:00:00+00:00",
+      "league_label": "Champions League",
+      "league_order": 17,
+      "home_team": "Feyenoord",
+      "away_team": "FC Porto",
+      "model": {
+        "lambda_home": 1.5,
+        "lambda_away": 1.9,
+        "favorite_side": "away",
+        "prob_lead_2_home": 0.1913,
+        "prob_lead_2_away": 0.3552,
+        "prob_lead_3_home": 0.0822,
+        "prob_lead_3_away": 0.1873,
+        "duplo_green_label": "CHANCE MODERADA DE DUPLO GREEN",
+        "pa_label": "PEGAR PA NESSE TIME: FC Porto",
+        "pa_tier": "moderado",
+        "raw_score": 0.3048
+      }
+    },
+    {
+      "fixture_id": 1635692,
+      "kickoff_utc": "2026-11-24T20:00:00+00:00",
+      "league_label": "Champions League",
+      "league_order": 17,
+      "home_team": "Manchester City",
+      "away_team": "Napoli",
+      "model": {
+        "lambda_home": 2.04,
+        "lambda_away": 1.41,
+        "favorite_side": "home",
+        "prob_lead_2_home": 0.412,
+        "prob_lead_2_away": 0.1571,
+        "prob_lead_3_home": 0.2299,
+        "prob_lead_3_away": 0.0638,
+        "duplo_green_label": "CHANCE MODERADA DE DUPLO GREEN",
+        "pa_label": "PEGAR PA NESSE TIME: Manchester City",
+        "pa_tier": "moderado",
+        "raw_score": 0.3574
+      }
+    },
+    {
+      "fixture_id": 1635713,
+      "kickoff_utc": "2026-11-24T20:00:00+00:00",
+      "league_label": "Champions League",
+      "league_order": 17,
+      "home_team": "RB Leipzig",
+      "away_team": "Lens",
+      "model": {
+        "lambda_home": 2.62,
+        "lambda_away": 1.27,
+        "favorite_side": "home",
+        "prob_lead_2_home": 0.6142,
+        "prob_lead_2_away": 0.0866,
+        "prob_lead_3_home": 0.4122,
+        "prob_lead_3_away": 0.0313,
+        "duplo_green_label": "GRANDE CHANCE DE DUPLO GREEN",
+        "pa_label": "PEGAR PA NESSE TIME: RB Leipzig",
+        "pa_tier": "forte",
+        "raw_score": 0.5536
+      }
+    },
+    {
+      "fixture_id": 1635715,
+      "kickoff_utc": "2026-11-24T20:00:00+00:00",
+      "league_label": "Champions League",
+      "league_order": 17,
+      "home_team": "Real Madrid",
+      "away_team": "PSV Eindhoven",
+      "model": {
+        "lambda_home": 2.16,
+        "lambda_away": 1.81,
+        "favorite_side": "home",
+        "prob_lead_2_home": 0.367,
+        "prob_lead_2_away": 0.2263,
+        "prob_lead_3_home": 0.2071,
+        "prob_lead_3_away": 0.1098,
+        "duplo_green_label": "CHANCE MODERADA DE DUPLO GREEN",
+        "pa_label": "PEGAR PA NESSE TIME: Real Madrid",
+        "pa_tier": "moderado",
+        "raw_score": 0.319
+      }
+    },
+    {
+      "fixture_id": 1635731,
+      "kickoff_utc": "2026-11-24T20:00:00+00:00",
+      "league_label": "Champions League",
+      "league_order": 17,
+      "home_team": "Slovan Bratislava",
+      "away_team": "Real Betis",
+      "model": {
+        "lambda_home": 0.74,
+        "lambda_away": 2.8,
+        "favorite_side": "away",
+        "prob_lead_2_home": 0.0259,
+        "prob_lead_2_away": 0.8041,
+        "prob_lead_3_home": 0.0061,
+        "prob_lead_3_away": 0.5892,
+        "duplo_green_label": "GRANDE CHANCE DE DUPLO GREEN",
+        "pa_label": "PEGAR PA NESSE TIME: Real Betis",
+        "pa_tier": "forte",
+        "raw_score": 0.7396
       }
     },
     {
@@ -1140,54 +615,12 @@
       }
     },
     {
-      "fixture_id": 1551043,
-      "kickoff_utc": "2026-11-22T01:00:00+00:00",
-      "league_label": "Liga MX",
-      "league_order": 24,
-      "home_team": "U.N.A.M. - Pumas",
-      "away_team": "Monterrey",
-      "model": {
-        "lambda_home": null,
-        "lambda_away": null,
-        "favorite_side": null,
-        "prob_lead_2_home": null,
-        "prob_lead_2_away": null,
-        "prob_lead_3_home": null,
-        "prob_lead_3_away": null,
-        "duplo_green_label": "SEM DADOS SUFICIENTES",
-        "pa_label": "SEM DADOS SUFICIENTES",
-        "pa_tier": "sem_dados",
-        "raw_score": -1
-      }
-    },
-    {
-      "fixture_id": 1551044,
-      "kickoff_utc": "2026-11-22T03:00:00+00:00",
-      "league_label": "Liga MX",
-      "league_order": 24,
-      "home_team": "Tigres UANL",
-      "away_team": "Club America",
-      "model": {
-        "lambda_home": null,
-        "lambda_away": null,
-        "favorite_side": null,
-        "prob_lead_2_home": null,
-        "prob_lead_2_away": null,
-        "prob_lead_3_home": null,
-        "prob_lead_3_away": null,
-        "duplo_green_label": "SEM DADOS SUFICIENTES",
-        "pa_label": "SEM DADOS SUFICIENTES",
-        "pa_tier": "sem_dados",
-        "raw_score": -1
-      }
-    },
-    {
-      "fixture_id": 1551045,
-      "kickoff_utc": "2026-11-22T23:07:00+00:00",
-      "league_label": "Liga MX",
-      "league_order": 24,
-      "home_team": "Guadalajara Chivas",
-      "away_team": "Cruz Azul",
+      "fixture_id": 1649498,
+      "kickoff_utc": "2026-11-24T01:00:00+00:00",
+      "league_label": "MLS",
+      "league_order": 23,
+      "home_team": "St. Louis City",
+      "away_team": "Los Angeles FC",
       "model": {
         "lambda_home": null,
         "lambda_away": null,
@@ -1209,48 +642,6 @@
       "league_order": 24,
       "home_team": "Club Queretaro",
       "away_team": "Necaxa",
-      "model": {
-        "lambda_home": null,
-        "lambda_away": null,
-        "favorite_side": null,
-        "prob_lead_2_home": null,
-        "prob_lead_2_away": null,
-        "prob_lead_3_home": null,
-        "prob_lead_3_away": null,
-        "duplo_green_label": "SEM DADOS SUFICIENTES",
-        "pa_label": "SEM DADOS SUFICIENTES",
-        "pa_tier": "sem_dados",
-        "raw_score": -1
-      }
-    },
-    {
-      "fixture_id": 1649570,
-      "kickoff_utc": "2026-11-22T19:00:00+00:00",
-      "league_label": "Liga Profesional de Fútbol",
-      "league_order": 25,
-      "home_team": "Rosario Central",
-      "away_team": "Gimnasia M.",
-      "model": {
-        "lambda_home": null,
-        "lambda_away": null,
-        "favorite_side": null,
-        "prob_lead_2_home": null,
-        "prob_lead_2_away": null,
-        "prob_lead_3_home": null,
-        "prob_lead_3_away": null,
-        "duplo_green_label": "SEM DADOS SUFICIENTES",
-        "pa_label": "SEM DADOS SUFICIENTES",
-        "pa_tier": "sem_dados",
-        "raw_score": -1
-      }
-    },
-    {
-      "fixture_id": 1649569,
-      "kickoff_utc": "2026-11-22T22:00:00+00:00",
-      "league_label": "Liga Profesional de Fútbol",
-      "league_order": 25,
-      "home_team": "River Plate",
-      "away_team": "Lanus",
       "model": {
         "lambda_home": null,
         "lambda_away": null,
